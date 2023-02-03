@@ -17,6 +17,16 @@ apt update -y && apt upgrade -y && apt install fio git openvswitch-switch bcache
 while true; do rm -f /etc/apt/sources.list.d/ceph.list; sleep 0.2; done
 ```
 
+开机自动恢复调优参数，文件位置 `/etc/supervisor/conf.d/bcache-tuning.conf`
+```
+# bcache-tuning.conf
+[program:bcache-tuning]
+command=/usr/bin/bcache-tuning
+startsecs=0
+startretries=0
+user=root
+```
+
 #### 工具推荐
 
 - bcache-status：https://gist.github.com/adamryczkowski/8b9a1e55ac85a2ee83e2
