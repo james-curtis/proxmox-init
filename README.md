@@ -19,7 +19,6 @@ while true; do rm -f /etc/apt/sources.list.d/ceph.list; sleep 0.2; done
 
 开机自动恢复调优参数，文件位置 `/etc/supervisor/conf.d/bcache-tuning.conf`
 ```
-# bcache-tuning.conf
 [program:bcache-tuning]
 command=/usr/bin/bcache-tuning
 startsecs=0
