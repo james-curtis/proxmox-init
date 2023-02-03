@@ -9,8 +9,7 @@ echo "deb https://mirrors.ustc.edu.cn/proxmox/debian/pve $VERSION_CODENAME pve-n
 rm -f /etc/apt/sources.list.d/pve-enterprise.list
 echo "deb https://mirrors.ustc.edu.cn/proxmox/debian/ceph-quincy bullseye main" > /etc/apt/sources.list.d/ceph_mirror.list
 
-apt update -y && apt upgrade -y
-apt install fio git openvswitch-switch bcache-tools -y
+apt update -y && apt upgrade -y && apt install fio git openvswitch-switch bcache-tools -y
 ```
 
 安装ceph之前执行
