@@ -16,3 +16,8 @@ apt update -y && apt upgrade -y && apt install fio git openvswitch-switch bcache
 ```bash
 while true; do rm -f /etc/apt/sources.list.d/ceph.list; sleep 0.2; done
 ```
+
+#### 工具推荐
+
+- bcache-status：https://gist.github.com/adamryczkowski/8b9a1e55ac85a2ee83e2
+- bcache-tuning：https://github.com/james-curtis/bcache-tuning
