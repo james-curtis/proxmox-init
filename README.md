@@ -35,6 +35,8 @@ user=root
 # OpenStack Ceph
 
 Glance、Cinder、Zun、Nova、Gnocchi、Manila、Swift(RadosGW)对接ceph
+
+## keyring复制
 ```bash
 # 在部署机操作
 mkdir -p /etc/kolla/config/cinder/cinder-backup
@@ -94,4 +96,31 @@ ceph auth get client.manila | ssh ${deploy} tee /etc/kolla/config/manila/ceph.cl
 ├── globals.yml
 ├── globals.yml.bak
 └── passwords.yml
+```
+
+## ceph.conf复制
+
+先手动复制一份 `ceph.conf` 到 `/etc/kolla/config/ceph.conf` 
+
+> 只需要复制 `[global]` 部分即可
+
+然后下面命令软链接到各个组件文件夹
+```
+# glance
+ln -s /etc/kolla/config/ceph.conf /etc/kolla/config/glance/ceph.conf
+
+# cinder
+ln -s /etc/kolla/config/ceph.conf /etc/kolla/config/cinder/ceph.conf
+
+# zun
+ln -s /etc/kolla/config/ceph.conf /etc/kolla/config/zun/zun-compute/ceph.conf
+
+# nova
+ln -s /etc/kolla/config/ceph.conf /etc/kolla/config/nova/ceph.conf
+
+# gnocchi
+ln -s /etc/kolla/config/ceph.conf /etc/kolla/config/gnocchi/ceph.conf
+
+# manila
+ln -s /etc/kolla/config/ceph.conf /etc/kolla/config/manila/ceph.conf
 ```
