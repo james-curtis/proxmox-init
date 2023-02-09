@@ -49,24 +49,24 @@ mkdir -p /etc/kolla/config/zun/zun-compute
 deploy=10.10.2.81 #部署机ip
 
 # glance
-ceph auth get client.glance | ssh 10.10.2.81 tee /etc/kolla/config/glance/ceph.client.glance.keyring
+ceph auth get client.glance | ssh ${deploy} tee /etc/kolla/config/glance/ceph.client.glance.keyring
 
 # cinder
 ceph auth get client.cinder | ssh ${deploy} tee /etc/kolla/config/cinder/cinder-volume/ceph.client.cinder.keyring
-ceph auth get client.cinder | ssh 10.10.2.81 tee /etc/kolla/config/cinder/cinder-backup/ceph.client.cinder.keyring
-ceph auth get client.cinder-backup | ssh 10.10.2.81 tee /etc/kolla/config/cinder/cinder-backup/ceph.client.cinder-backup.keyring
+ceph auth get client.cinder | ssh ${deploy} tee /etc/kolla/config/cinder/cinder-backup/ceph.client.cinder.keyring
+ceph auth get client.cinder-backup | ssh ${deploy} tee /etc/kolla/config/cinder/cinder-backup/ceph.client.cinder-backup.keyring
 
 # zun
-ceph auth get client.cinder | ssh 10.10.2.81 tee /etc/kolla/config/zun/zun-compute/ceph.client.cinder.keyring
+ceph auth get client.cinder | ssh ${deploy} tee /etc/kolla/config/zun/zun-compute/ceph.client.cinder.keyring
 
 # nova
-ceph auth get client.cinder | ssh 10.10.2.81 tee /etc/kolla/config/nova/ceph.client.cinder.keyring
+ceph auth get client.cinder | ssh ${deploy} tee /etc/kolla/config/nova/ceph.client.cinder.keyring
 
 # gnocchi
-ceph auth get client.gnocchi | ssh 10.10.2.81 tee /etc/kolla/config/gnocchi/ceph.client.gnocchi.keyring
+ceph auth get client.gnocchi | ssh ${deploy} tee /etc/kolla/config/gnocchi/ceph.client.gnocchi.keyring
 
 # manila
-ceph auth get client.manila | ssh 10.10.2.81 tee /etc/kolla/config/manila/ceph.client.manila.keyring
+ceph auth get client.manila | ssh ${deploy} tee /etc/kolla/config/manila/ceph.client.manila.keyring
 
 ```
 查看结果
