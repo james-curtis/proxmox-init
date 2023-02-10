@@ -1,10 +1,24 @@
 # ubuntu22.04.qcow2 初始化配置
 
 # 换源
+
+> cloud-init重生成镜像后会失效
+
 ```bash
 sudo sed -i 's/archive.ubuntu.com/mirrors.nju.edu.cn/g' /etc/apt/sources.list
 sudo sed -i 's/security.ubuntu.com/mirrors.nju.edu.cn/g' /etc/apt/sources.list
 sudo apt update
+```
+
+# ssh登录
+```bash
+sudo vim /etc/ssh/sshd_config
+
+# 放行root登录
+PermitRootLogin yes
+
+# 允许密码登录
+PasswordAuthentication yes
 ```
 
 # 时区
