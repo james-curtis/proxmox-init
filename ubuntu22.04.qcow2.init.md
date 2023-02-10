@@ -9,7 +9,7 @@ sudo apt update
 
 # 时区
 ```bash
-sudo timedatectl set-timezone Aisa/Shanghai
+sudo timedatectl set-timezone Asia/Shanghai
 ```
 
 # 时间同步
