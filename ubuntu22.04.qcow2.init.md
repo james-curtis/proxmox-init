@@ -10,6 +10,9 @@ sudo apt update
 # 时区
 ```bash
 sudo timedatectl set-timezone Asia/Shanghai
+
+# 验证
+timedatectl
 ```
 
 # 时间同步
@@ -36,5 +39,8 @@ sudo chronyc tracking
 ```bash
 sudo apt install qemu-guest-agent
 sudo systemctl start qemu-guest-agent
-sudo systemctl enalbe qemu-guest-agent
+sudo systemctl enable qemu-guest-agent
+
+# 验证
+sudo systemctl status qemu-guest-agent
 ```
