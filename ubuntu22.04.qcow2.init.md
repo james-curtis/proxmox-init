@@ -4,6 +4,7 @@
 ```bash
 sudo sed -i 's/archive.ubuntu.com/mirrors.nju.edu.cn/g' /etc/apt/sources.list
 sudo sed -i 's/security.ubuntu.com/mirrors.nju.edu.cn/g' /etc/apt/sources.list
+sudo apt update
 ```
 
 # 时区
